@@ -9,6 +9,10 @@ const frontendPath = path.resolve(
   "../frontend"
 );
 
+app.get('/heal', (req, res) => {
+    res.send('api is running')
+})
+
 app.use(express.static(frontendPath));
 
 app.listen(port, () => {
