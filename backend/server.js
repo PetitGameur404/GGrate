@@ -12,5 +12,5 @@ const frontendPath = path.resolve(
 app.use(express.static(frontendPath));
 
 app.listen(port, () => {
-  console.log(`Serveur lancé sur http://localhost:${port}`);
+  console.log(`server is running on http://localhost:${port}`);
 });
