@@ -25,4 +25,16 @@ body {
     font-family: "Plus Jakarta Sans", sans-serif;
     background-color: var(--bg-blue);
     color: var(--white);
+
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* centre horizontalement */
+    align-items: center;     /* centre verticalement */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
