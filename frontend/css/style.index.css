@@ -1,14 +1,12 @@
 :root {
-
-    /* Color variable */
+    /* Couleurs du site */
     --bg-blue: #1B2B40;
     --bg-dark-blue: #1B2B40;
     --light-blue: #1A9FFF;
     --white: #EDEDED;
     --accent: #A1CD44;
 
-    /* variable for code */
-
+    /* Couleurs des boutons */
     --btn-primary: linear-gradient(
         to right,
         #0DC1F1 40%,
@@ -19,4 +17,277 @@
     --btn-accent: var(--accent);
 }
 
+/* Réglages généraux */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark-blue);
+    color: var(--white);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Accueil */
+.welcome {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 50px 20px;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Image de fond */
+.background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(10, 14, 20, 0.65),
+            rgba(10, 14, 20, 0.65)
+        ),
+        url("./assets/background-games.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transform: scale(1.02);
+}
+
+/* Contenu devant l'image */
+.welcome-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 850px;
+}
+
+/* Logo GG Rate */
+h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: clamp(65px, 10vw, 100px);
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--white);
+    letter-spacing: -3px;
+}
+
+.logo-green {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+/* Description */
+.welcome-content p {
+    max-width: 700px;
+    margin: 0 auto 35px;
+    color: rgba(237, 237, 237, 0.85);
+    font-size: 19px;
+    line-height: 1.5;
+}
+
+/* Statistiques */
+.statistics {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    margin: 45px 0 70px;
+}
+
+.statistic {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.statistic-label {
+    color: var(--white);
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.statistic-value {
+    color: var(--white);
+    font-size: 16px;
+}
+
+/* Petits points verts et bleus */
+.statistic-label::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 6px;
+    border-radius: 50%;
+    background-color: var(--accent);
+}
+
+.statistic:last-child .statistic-label::before {
+    background-color: var(--light-blue);
+}
+
+/* Bouton Explore games */
+.explore-button {
+    display: inline-block;
+    padding: 17px 22px;
+    border: none;
+    border-radius: 3px;
+    background: var(--btn-primary);
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.explore-button:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+}
+
+/* Catalogue des jeux */
+#games {
+    min-height: 400px;
+    padding: 70px 8%;
+    background-color: var(--bg-dark-blue);
+}
+
+#games h2 {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 32px;
+}
+
+/* Barre de recherche */
+#search-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    max-width: 650px;
+    margin: 0 auto 30px;
+}
+
+#game-search {
+    flex: 1;
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid #40516A;
+    border-radius: 5px;
+    background-color: #101B2A;
+    color: var(--white);
+    font-size: 16px;
+}
+
+#game-search:focus {
+    outline: 2px solid var(--light-blue);
+}
+
+#search-form button {
+    padding: 14px 20px;
+    border: none;
+    border-radius: 5px;
+    background: var(--btn-primary);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#search-message {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Résultats des jeux ajoutés par JavaScript */
+#game-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.game-card {
+    overflow: hidden;
+    border: 1px solid #304158;
+    border-radius: 8px;
+    background-color: #142235;
+    transition: transform 0.2s;
+}
+
+.game-card:hover {
+    transform: translateY(-4px);
+}
+
+.game-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 460 / 215;
+    object-fit: cover;
+}
+
+.game-card h3 {
+    padding: 15px 15px 8px;
+    font-size: 18px;
+}
+
+.game-card p {
+    padding: 0 15px 15px;
+    color: #B7C3D3;
+    font-size: 14px;
+}
+
+/* Pied de page */
+footer {
+    padding: 25px;
+    background-color: #101B2A;
+    color: #AAB5C5;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Adaptation aux téléphones */
+@media (max-width: 600px) {
+    .welcome {
+        min-height: 100vh;
+        padding: 40px 18px;
+    }
+
+    .welcome-content p {
+        font-size: 16px;
+    }
+
+    .statistics {
+        gap: 35px;
+        margin: 35px 0 50px;
+    }
+
+    .statistic-label {
+        font-size: 10px;
+    }
+
+    #games {
+        padding: 50px 18px;
+    }
+
+    #search-form {
+        flex-direction: column;
+    }
+
+    #search-form button {
+        width: 100%;
+    }
+}

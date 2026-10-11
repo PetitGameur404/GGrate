@@ -7,10 +7,10 @@
     <title>Game - Library</title>
 </head>
 <body>
-    
+
     <nav>
         <a href="/">
-        <img class="logo" src="assets/icon/logo.png" alt="logo">
+            <img class="logo" src="assets/icon/logo.png" alt="logo">
         </a>
         <ul>
             <li><a href="/">Home</a></li>
@@ -19,121 +19,144 @@
             <li><a href="#">About</a></li>
         </ul>
 
-            <input type="search" name="search" id="search" placeholder="Search game...">
+        <input type="search" name="search" id="search" placeholder="Search game...">
     </nav>
 
-
     <div class="hero">
-        <h1>Welcom to games library section</h1>
-        <p>Here you can find all of games Available on Rate.GG</p>
+        <h1>Welcome to the games library</h1>
+        <p>Here you can find all of the games available on Rate.GG</p>
 
-        <a href="#">See games</a>
-
+        <a href="#library">See games</a>
     </div>
 
+    <div class="library" id="library">
+        <div class="card">
+            <img src="assets/fortnite.jpg" alt="Fortnite">
+            <div class="card-content">
+                <h3>Fortnite</h3>
+                <a href="/vote.html" class="card-btn">See reviews</a>
+            </div>
+        </div>
 
-<div class="library">
-    <div class="card">
-        <img src="assets/fortnite.jpg" alt="Fornite">
-        <div class="card-content">
-            <h3>Fornite</h3>
-            <a href="/vote.html" class="card-btn">See reviews</a>
+        <div class="card">
+            <img src="assets/arc-raiders.webp" alt="Arc Raiders">
+            <div class="card-content">
+                <h3>Arc Raiders</h3>
+                <a href="/vote.html" class="card-btn">See reviews</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="assets/assassins.jpg" alt="Assassin's Creed Mirage">
+            <div class="card-content">
+                <h3>Assassin's Creed Mirage</h3>
+                <a href="/vote.html" class="card-btn">See reviews</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="assets/call-of.jpg" alt="Call of Duty MW4">
+            <div class="card-content">
+                <h3>Call of Duty MW4</h3>
+                <a href="/vote.html" class="card-btn">See reviews</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="assets/ets2.jpg" alt="Euro Truck Simulator 2">
+            <div class="card-content">
+                <h3>Euro Truck Simulator 2</h3>
+                <a href="/vote.html" class="card-btn">See reviews</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="assets/minecraft.jpg" alt="Minecraft">
+            <div class="card-content">
+                <h3>Minecraft</h3>
+                <a href="/vote.html" class="card-btn">See reviews</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="assets/satisfactory.jpg" alt="Satisfactory">
+            <div class="card-content">
+                <h3>Satisfactory</h3>
+                <a href="/vote.html" class="card-btn">See reviews</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="assets/subnautica.jpg" alt="Subnautica">
+            <div class="card-content">
+                <h3>Subnautica</h3>
+                <a href="/vote.html" class="card-btn">See reviews</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="assets/wd2.jpg" alt="Watch Dogs 2">
+            <div class="card-content">
+                <h3>Watch Dogs 2</h3>
+                <a href="/vote.html" class="card-btn">See reviews</a>
+            </div>
         </div>
     </div>
 
-    <div class="card">
-        <img src="assets/arc-raiders.webp" alt="arc-raiders">
-        <div class="card-content">
-            <h3>Arc-raiders</h3>
-            <a href="/vote.html" class="card-btn">See reviews</a>
-        </div>
-    </div>
+    <h2 class="section-title">Latest reviews</h2>
+    <div id="reviews" class="reviews"></div>
 
-    <div class="card">
-        <img src="assets/assassins.jpg" alt="assassins">
-        <div class="card-content">
-            <h3>Assasin's creed mirage</h3>
-            <a href="/vote.html" class="card-btn">See reviews</a>
-        </div>
-    </div>
+    <script>
+        const gameNames = {
+            'fortnite': 'Fortnite',
+            'arc-raiders': 'Arc Raiders',
+            'assassins-creed-mirage': "Assassin's Creed Mirage",
+            'call-of-duty-mw4': 'Call of Duty MW4',
+            'euro-truck-simulator-2': 'Euro Truck Simulator 2',
+            'minecraft': 'Minecraft',
+            'satisfactory': 'Satisfactory',
+            'subnautica': 'Subnautica',
+            'watch-dogs-2': 'Watch Dogs 2'
+        };
 
-    <div class="card">
-        <img src="assets/call-of.jpg" alt="call-of">
-        <div class="card-content">
-            <h3>Call of duty MW4</h3>
-            <a href="/vote.html" class="card-btn">See reviews</a>
-        </div>
-    </div>
+        function escapeHTML(str) {
+            const div = document.createElement('div');
+            div.textContent = str ?? '';
+            return div.innerHTML;
+        }
 
-    <div class="card">
-        <img src="assets/ets2.jpg" alt="ets2">
-        <div class="card-content">
-            <h3>Euro truck simulator 2</h3>
-            <a href="/vote.html" class="card-btn">See reviews</a>
-        </div>
-    </div>    
-    
-    <div class="card">
-        <img src="assets/minecraft.jpg" alt="minecraft">
-        <div class="card-content">
-            <h3>Minecraft</h3>
-            <a href="/vote.html" class="card-btn">See reviews</a>
-        </div>
-    </div>   
-    
-    <div class="card">
-        <img src="assets/satisfactory.jpg" alt="satisfactory">
-        <div class="card-content">
-            <h3>Satisfactory</h3>
-            <a href="/vote.html" class="card-btn">See reviews</a>
-        </div>
-    </div>   
-    
-    <div class="card">
-        <img src="assets/subnautica.jpg" alt="subnautica">
-        <div class="card-content">
-            <h3>subnautica</h3>
-            <a href="/vote.html" class="card-btn">See reviews</a>
-        </div>
-    </div>   
-    
-    <div class="card">
-        <img src="assets/wd2.jpg" alt="wd2">
-        <div class="card-content">
-            <h3>Watch dogs 2</h3>
-            <a href="/vote.html" class="card-btn">See reviews</a>
-        </div>
-    </div>
-</div>
+        async function loadReviews() {
+            const response = await fetch('/reviews');
+            const reviews = await response.json();
 
-<h2 class="section-title">Latest reviews</h2>
-<div id="reviews" class="reviews"></div>
+            const container = document.getElementById('reviews');
+            container.innerHTML = '';
+
+            if (reviews.length === 0) {
+                container.innerHTML = '<p>No reviews yet.</p>';
+                return;
+            }
+
+            reviews.forEach((review) => {
+                const stars = Number(review.stars) || 0;
+                const gameName = gameNames[review.game] || review.game;
+
+                const card = document.createElement('div');
+                card.className = 'review-card';
+                card.innerHTML = `
+                    <div class="review-header">
+                        <h3>${escapeHTML(review.steamuser)}</h3>
+                        <span class="review-stars">${'★'.repeat(stars)}${'☆'.repeat(5 - stars)}</span>
+                    </div>
+                    <p class="review-game">${escapeHTML(gameName)}</p>
+                    <p>${escapeHTML(review.description)}</p>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        loadReviews();
+    </script>
 
 </body>
 </html>
-
-<script>
-  async function loadReviews() {
-    const response = await fetch('/reviews');
-    const reviews = await response.json();
-
-    const container = document.getElementById('reviews');
-    container.innerHTML = '';
-
-    reviews.forEach((review) => {
-      const card = document.createElement('div');
-      card.className = 'review-card';
-      card.innerHTML = `
-        <div class="review-header">
-          <h3>${review.steamuser}</h3>
-          <span class="review-stars">${'★'.repeat(review.stars)}${'☆'.repeat(5 - review.stars)}</span>
-        </div>
-        <p class="review-game">${review.game}</p>
-        <p>${review.description}</p>
-      `;
-      container.appendChild(card);
-    });
-  }
-
-  loadReviews();
-</script>

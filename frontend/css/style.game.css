@@ -1,6 +1,6 @@
-:root {
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
-    /* Color variable */
+:root {
     --bg-blue: #1B2838;
     --bg-dark-blue: #1B2B40;
     --light-blue: #1A9FFF;
@@ -8,43 +8,39 @@
     --accent: #A1CD44;
     --dark: #141414;
 
-    /* variable for code */
-
-    /* --btn-primary: (
-       background-color: linear-gradient(90deg, #0DC2F2 50%, #1A9FFF 100%);
-       border-radius: 2px;
-    ); */
-
-
-    /* --btn-secondary: var(--bg-dark-blue);
-    --btn-accent: var(--accent); */
+    --btn-primary: linear-gradient(90deg, #0DC2F2 50%, #1A9FFF 100%);
 }
 
+* {
+    box-sizing: border-box;
+}
 
 body {
     font-family: "Plus Jakarta Sans", sans-serif;
     background-color: var(--bg-blue);
     color: var(--white);
-
     min-height: 100vh;
     margin: 0;
-}
-
-.logo {
-    height: 20px;
 }
 
 nav {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    padding: 12px 0;
+    background: var(--dark);
+}
+
+.logo {
+    height: 20px;
 }
 
 nav ul {
     display: flex;
     gap: 15px;
     list-style: none;
-    
+    margin: 0;
+    padding: 0;
 }
 
 nav a {
@@ -52,38 +48,47 @@ nav a {
     color: var(--white);
 }
 
-input {
-    background: linear-gradient(90deg, #0DC2F2 50%, #1A9FFF 100%);
-    border-radius: 2px;
-    color: var(--white);
-    background-image: url('../assets/icon/search.png');
-    background-position: 10px;
-    background-size: 18px;
-    background-repeat: no-repeat;
-    padding-left: 40px;
+nav a:hover {
+    color: var(--light-blue);
 }
 
-/* input:focus {
-    background: var(--light-blue);
+nav input[type="search"] {
+    background-color: var(--bg-dark-blue);
+    background-image: url('../assets/icon/search.png');
+    background-position: 10px center;
+    background-size: 18px;
+    background-repeat: no-repeat;
+    border: 1px solid transparent;
+    border-radius: 2px;
     color: var(--white);
-    border-color: var(--bg-dark-blue);
-} */
+    padding: 8px 12px 8px 40px;
+    font-family: inherit;
+}
+
+nav input[type="search"]:focus {
+    outline: none;
+    border-color: var(--light-blue);
+}
 
 .hero {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 40px 20px;
 }
 
 .hero a {
-    background: linear-gradient(90deg, #0DC2F2 50%, #1A9FFF 100%);
-    height: 30px;
-    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--btn-primary);
+    height: 36px;
+    width: 140px;
     border-radius: 2px;
-    text-align: center;
     text-decoration: none;
     color: var(--white);
+    font-weight: 600;
 }
 
 .card {
@@ -114,7 +119,7 @@ input {
 
 .card-btn {
     padding: 8px 16px;
-    background: linear-gradient(90deg, #0DC2F2 50%, #1A9FFF 100%);
+    background: var(--btn-primary);
     color: white;
     text-decoration: none;
     border-radius: 2px;
@@ -122,18 +127,14 @@ input {
 
 .library {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 18px;
     margin: 35px;
 }
 
-/* Rewiews */
-
 .section-title {
-    display: flex;
     text-align: center;
-    align-items: center;
-    justify-content: center;
+    margin-top: 50px;
 }
 
 .reviews {
@@ -159,11 +160,16 @@ input {
     align-items: center;
 }
 
+.review-header h3 {
+    margin: 0;
+}
+
 .review-stars {
     color: gold;
 }
 
 .review-game {
-    color: #1A9FFF;
+    color: var(--light-blue);
     font-weight: bold;
+    margin: 0;
 }

@@ -5,6 +5,7 @@
     /* Color variable */
     --bg-blue: #1B2B40;
     --bg-dark-blue: #1B2B40;
+    --nav-bg: #0e1116;
     --light-blue: #1A9FFF;
     --white: #EDEDED;
     --accent: #A1CD44;
@@ -21,6 +22,10 @@
     --btn-accent: var(--accent);
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: "Plus Jakarta Sans", sans-serif;
     background-color: var(--bg-blue);
@@ -29,12 +34,101 @@ body {
     min-height: 100vh;
     margin: 0;
     display: flex;
-    justify-content: center; 
+    flex-direction: column;
+}
+
+/* NAV */
+nav {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    padding: 12px 30px;
+    background: var(--nav-bg);
+}
+
+.logo {
+    height: 40px;
+}
+
+nav ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--light-blue);
+}
+
+nav input {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: none;
+    font-family: inherit;
+}
+
+/* FORM */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+.form {
+    width: 100%;
+    max-width: 420px;
+    background: var(--nav-bg);
+    padding: 30px;
+    border-radius: 8px;
+    margin: auto;
 }
 
 form {
     display: flex;
     flex-direction: column;
     gap: 12px;
+}
+
+label {
+    font-weight: 600;
+}
+
+form input,
+form select {
+    padding: 10px 12px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    background: var(--bg-blue);
+    color: var(--white);
+    font-family: inherit;
+}
+
+form input:focus,
+form select:focus {
+    outline: none;
+    border-color: var(--light-blue);
+}
+
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    background: var(--btn-primary);
+    color: white;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.85;
 }
