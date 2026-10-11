@@ -73,6 +73,16 @@ app.post('/test', (req, res) => {
   );
 });
 
+app.get('/reviews', (req, res) => {
+  connection.query('SELECT * FROM reviews', (err, rows) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ error: 'Erreur DB' });
+    }
+    res.json(rows);
+  });
+});
+
 
 
 app.listen(port, () => {

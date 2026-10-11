@@ -8,19 +8,68 @@
 </head>
 <body>
     <div class="form">
-        <form action="" method="get">
-            <label for="pseudo">Steam username:</label>
-            <input type="text" name="pseudo" id="pseudo" placeholder="Mike90">
+        <form id="review-form">
+            <label for="steamuser">Steam username:</label>
+            <input type="text" name="steamuser" id="steamuser" placeholder="Mike90">
 
             <label for="stars">Stars /5:</label>
             <input type="number" name="stars" id="stars" placeholder="5">
 
             <label for="description">Descrire your rewies:</label>
             <input type="text" name="description" id="description" placeholder="I like this game beacause...">
+
+                        <br>
+            <button type="submit">Submit my rewies</button>
         </form>
             
-            <br>
-            <button type="submit">Submit my rewies</button>
+
     </div>
+
+
+    <div id="reviews"></div>
+
+
 </body>
 </html>
+
+<script>
+  async function loadReviews() {
+    const response = await fetch('/reviews');
+    const reviews = await response.json();
+
+    const container = document.getElementById('reviews');
+    container.innerHTML = '';
+
+    reviews.forEach((review) => {
+      const div = document.createElement('div');
+      div.innerHTML = `
+        <h3>${review.steamuser} - ${review.stars}/5</h3>
+        <p>${review.description}</p>
+      `;
+      container.appendChild(div);
+    });
+  }
+
+    async function pushReviews(e) {
+    e.preventDefault();
+
+    const steamuser = document.querySelector('[name="steamuser"]').value;
+    const stars = document.querySelector('[name="stars"]').value;
+    const description = document.querySelector('[name="description"]').value;
+
+    const body = new URLSearchParams({ steamuser, stars, description });
+
+    const response = await fetch('/test', {
+        method: 'POST',
+        body,
+    });
+
+    const result = await response.json();
+    console.log(result);
+    }
+
+    document.getElementById('review-form').addEventListener('submit', pushReviews);
+
+
+  loadReviews();
+</script>

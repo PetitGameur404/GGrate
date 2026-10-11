@@ -1,0 +1,48 @@
+:root {
+
+    /* Color variable */
+    --bg-blue: #1B2B40;
+    --bg-dark-blue: #1B2B40;
+    --light-blue: #1A9FFF;
+    --white: #EDEDED;
+    --accent: #A1CD44;
+
+    /* variable for code */
+
+    --btn-primary: linear-gradient(
+        to right,
+        #0DC1F1 40%,
+        #1A9FFF
+    );
+
+    --btn-secondary: var(--bg-dark-blue);
+    --btn-accent: var(--accent);
+}
+
+
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    background-color: var(--bg-blue);
+    color: var(--white);
+
+    min-height: 100vh;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--white);
+}
