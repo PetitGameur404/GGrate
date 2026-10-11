@@ -1,12 +1,89 @@
-<!doctype html>
-<html lang="fr">
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GGrate</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#161d2b">
+    <meta name="description" content="Discover games and share your reviews with GG Rate.">
+
+    <title>GG Rate - Explore Games</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-  <h1>GGrate</h1>
+
+    <main>
+
+        <sectinon class="welcome">
+
+            <div class="background" aria-hidden="true"></div>
+
+            <div class="welcome-content">
+
+                <h1 class="logo">
+                    <span class="logo-green">GG</span>
+                    <span class="logo-white">Rate</span>
+              </h1>
+
+                <p class="description">
+                    Discover what gamers really think about their favorite
+                    games. Explore thousands of Steam titles, compare
+                    player ratings and share your opinion with the community.
+                </p>
+
+                <div class="statistics">
+
+                    <div class="statistic">
+                        <span class="statistic-label">Available games</span>
+                        <span class="statistic-number">105,000+</span>
+                    </div>
+
+                    <div class="statistic">
+                        <span class="statistic-label">Player reviews</span>
+                        <span class="statistic-number" id=" game-cont">loading</span>
+                    </div>
+
+                </div>
+
+                <a href="#games" class="explore-button">Explore game</a>
+
+            </div>
+
+        </section>
+        <!-- Game discoveri sections -->
+         <section class="game-section" id="games">
+          <div class="section-header">
+            <h2>Explore game</h2>
+            <p>
+              Find your next favorite game and discover
+                    what other players think about it.
+            </p>
+          </div>
+          <form id="search-from" class="search-from">
+            <label class="visually-hiden" for="game search">search game</label>
+            <imput
+            type="search"
+            id="game-search"
+            aria-placeholder="search a game..."
+            required 
+            minlength="2"
+            >
+            <button type="submit">search></button>
+            
+          </imput>
+          </form>
+          <p id="search-message" class="message" role="status"></p>
+          <div id="game-list" class="game-list"></div>
+         </section>
+        </main>
+        <footer class="footer">
+          <p>GG Rate - D iscover. Play Rate</p>
+        </footer>
 </body>
 </html>
 
