@@ -75,7 +75,13 @@ app.post('/test', (req, res) => {
 });
 
 app.get('/reviews', (req, res) => {
-  connection.query('SELECT * FROM reviews', (err, rows) => {
+  const { game } = req.query;
+
+  const sql = game
+    ? 'SELECT * FROM reviews WHERE game = ?'
+    : 'SELECT * FROM reviews';
+
+  connection.query(sql, game ? [game] : [], (err, rows) => {
     if (err) {
       console.error(err);
       return res.status(500).json({ error: 'Erreur DB' });
@@ -83,6 +89,7 @@ app.get('/reviews', (req, res) => {
     res.json(rows);
   });
 });
+
 
 
 

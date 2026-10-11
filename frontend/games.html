@@ -106,13 +106,14 @@
     </div>
 </div>
 
-<div id="reviews"></div>
+<h2 class="section-title">Latest reviews</h2>
+<div id="reviews" class="reviews"></div>
 
 </body>
 </html>
 
 <script>
-    async function loadReviews() {
+  async function loadReviews() {
     const response = await fetch('/reviews');
     const reviews = await response.json();
 
@@ -120,12 +121,19 @@
     container.innerHTML = '';
 
     reviews.forEach((review) => {
-      const div = document.createElement('div');
-      div.innerHTML = `
-        <h3>${review.steamuser} - ${review.stars}/5</h3>
+      const card = document.createElement('div');
+      card.className = 'review-card';
+      card.innerHTML = `
+        <div class="review-header">
+          <h3>${review.steamuser}</h3>
+          <span class="review-stars">${'★'.repeat(review.stars)}${'☆'.repeat(5 - review.stars)}</span>
+        </div>
+        <p class="review-game">${review.game}</p>
         <p>${review.description}</p>
       `;
-      container.appendChild(div);
+      container.appendChild(card);
     });
   }
+
+  loadReviews();
 </script>
