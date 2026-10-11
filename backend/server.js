@@ -31,26 +31,49 @@ connection.connect((err) => {
   console.log("Succes connexion db !")
 });
 
+app.use(express.static(frontendPath));
 
-connection.query('SELECT * FROM users', (err, rows, fields) => {
-  if (err) throw err;
-
-  console.log('Users liste: ', rows);
-});
-
-connection.end();
 
 app.get('/heal', (req, res) => {
   res.send('api is running')
 })
 
-app.use(express.urlencoded({ extended: false }));
-app.post('/test', (req, res) => {
-  console.log(req.body);
-  res.send()
-})
+const reviews = [];
 
-app.use(express.static(frontendPath));
+app.use(express.urlencoded({ extended: false }));
+
+app.post('/test', (req, res) => {
+  const {steamuser, stars, description} = req.body
+
+  // const review = {
+  //   id: reviews.length + 1,
+  //   steamuser,
+  //   stars: Number(stars),
+  //   description,
+  //   date: new Date()
+  // };
+
+  // reviews.push(review);
+  // console.log(reviews);
+
+  // res.status(201).json(review);
+
+
+  connection.query(
+    'INSERT INTO reviews (steamuser, stars, description) VALUES (?, ?, ?)',
+    [steamuser, Number(stars), description],
+    (err, result) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Erreur DB' });
+      }
+      res.status(201).json({ id: result.insertId, steamuser, stars, description });
+      console.log("Put on DB succes !")
+    }
+  );
+});
+
+
 
 app.listen(port, () => {
   console.log(`server is running on http://localhost:${port}`);
