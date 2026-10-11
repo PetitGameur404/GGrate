@@ -32,13 +32,13 @@ connection.connect((err) => {
 });
 
 
-// connection.query('SELECT * FROM user', (err, rows, fields) => {
-//   if (err) throw err;
+connection.query('SELECT * FROM users', (err, rows, fields) => {
+  if (err) throw err;
 
-//   console.log('The solution is: ', rows[0].solution);
-// });
+  console.log('Users liste: ', rows);
+});
 
-// connection.end();
+connection.end();
 
 app.get('/heal', (req, res) => {
     res.send('api is running')
