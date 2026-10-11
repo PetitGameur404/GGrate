@@ -106,5 +106,26 @@
     </div>
 </div>
 
+<div id="reviews"></div>
+
 </body>
 </html>
+
+<script>
+    async function loadReviews() {
+    const response = await fetch('/reviews');
+    const reviews = await response.json();
+
+    const container = document.getElementById('reviews');
+    container.innerHTML = '';
+
+    reviews.forEach((review) => {
+      const div = document.createElement('div');
+      div.innerHTML = `
+        <h3>${review.steamuser} - ${review.stars}/5</h3>
+        <p>${review.description}</p>
+      `;
+      container.appendChild(div);
+    });
+  }
+</script>

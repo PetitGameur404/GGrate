@@ -43,7 +43,8 @@ const reviews = [];
 app.use(express.urlencoded({ extended: false }));
 
 app.post('/test', (req, res) => {
-  const {steamuser, stars, description} = req.body
+    console.log('BODY:', req.body);
+  const {steamuser, game, stars, description} = req.body
 
   // const review = {
   //   id: reviews.length + 1,
@@ -60,8 +61,8 @@ app.post('/test', (req, res) => {
 
 
   connection.query(
-    'INSERT INTO reviews (steamuser, stars, description) VALUES (?, ?, ?)',
-    [steamuser, Number(stars), description],
+    'INSERT INTO reviews (steamuser, game, stars, description) VALUES (?, ?, ?, ?)',
+    [steamuser, game, Number(stars), description],
     (err, result) => {
       if (err) {
         console.error(err);
