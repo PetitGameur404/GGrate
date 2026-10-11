@@ -1,0 +1,20 @@
+:root {
+
+    /* Color variable */
+    --bg-blue: #1B2B40;
+    --bg-dark-blue: #1B2B40;
+    --light-blue: #1A9FFF;
+    --white: #EDEDED;
+    --accent: #A1CD44;
+
+    /* variable for code */
+
+    --btn-primary: linear-gradient(
+        to right,
+        #0DC1F1 40%,
+        #1A9FFF
+    );
+
+    --btn-secondary: var(--bg-dark-blue);
+    --btn-accent: var(--accent);
+}
