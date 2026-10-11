@@ -41,7 +41,13 @@ connection.query('SELECT * FROM users', (err, rows, fields) => {
 connection.end();
 
 app.get('/heal', (req, res) => {
-    res.send('api is running')
+  res.send('api is running')
+})
+
+app.use(express.urlencoded({ extended: false }));
+app.post('/test', (req, res) => {
+  console.log(req.body);
+  res.send()
 })
 
 app.use(express.static(frontendPath));
