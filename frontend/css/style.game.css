@@ -9,14 +9,14 @@
 
     /* variable for code */
 
-    --btn-primary: linear-gradient(
-        to right,
-        #0DC1F1 40%,
-        #1A9FFF
-    );
+    /* --btn-primary: (
+       background-color: linear-gradient(90deg, #0DC2F2 50%, #1A9FFF 100%);
+       border-radius: 2px;
+    ); */
 
-    --btn-secondary: var(--bg-dark-blue);
-    --btn-accent: var(--accent);
+
+    /* --btn-secondary: var(--bg-dark-blue);
+    --btn-accent: var(--accent); */
 }
 
 
@@ -37,7 +37,7 @@ nav {
 
 nav ul {
     display: flex;
-    gap: 10px;
+    gap: 15px;
     list-style: none;
     
 }
@@ -46,3 +46,20 @@ nav a {
     text-decoration: none;
     color: var(--white);
 }
+
+input {
+    background: linear-gradient(90deg, #0DC2F2 50%, #1A9FFF 100%);
+    border-radius: 2px;
+    color: var(--white);
+    background-image: url('../assets/icon/search.png');
+    background-position: 10px;
+    background-size: 18px;
+    background-repeat: no-repeat;
+    padding-left: 40px;
+}
+
+/* input:focus {
+    background: var(--light-blue);
+    color: var(--white);
+    border-color: var(--bg-dark-blue);
+} */
