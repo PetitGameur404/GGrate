@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +8,22 @@
 </head>
 <body>
 
-    <main>
+    <nav>
+        <a href="/">
+            <img class="nav-logo" src="assets/icon/logo.png" alt="logo">
+        </a>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/games.html">Games</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
 
-        <sectinon class="welcome">
+        <input type="search" name="search" id="search" placeholder="Search game...">
+    </nav>
+
+    <main>
+        <section class="welcome">
 
             <div class="background" aria-hidden="true"></div>
 
@@ -20,7 +32,7 @@
                 <h1 class="logo">
                     <span class="logo-green">GG</span>
                     <span class="logo-white">Rate</span>
-              </h1>
+                </h1>
 
                 <p class="description">
                     Discover what gamers really think about their favorite
@@ -37,19 +49,21 @@
 
                     <div class="statistic">
                         <span class="statistic-label">Player reviews</span>
-                        <span class="statistic-number" id=" game-cont">loading</span>
+                        <span class="statistic-number" id="game-count">loading</span>
                     </div>
 
                 </div>
 
-                <a href="#games" class="explore-button">Explore game</a>
+                <a href="/games.html" class="explore-button">Explore games</a>
 
             </div>
 
         </section>
-        </main>
-        <footer class="footer">
-          <p>GG Rate - D iscover. Play Rate</p>
-        </footer>
+    </main>
+
+    <footer class="footer">
+        <p>GG Rate - Discover. Play. Rate.</p>
+    </footer>
+
 </body>
 </html>

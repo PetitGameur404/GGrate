@@ -1,12 +1,11 @@
 :root {
-    /* Couleurs du site */
     --bg-blue: #1B2B40;
     --bg-dark-blue: #1B2B40;
     --light-blue: #1A9FFF;
     --white: #EDEDED;
     --accent: #A1CD44;
+    --nav-bg: #0e1116;
 
-    /* Couleurs des boutons */
     --btn-primary: linear-gradient(
         to right,
         #0DC1F1 40%,
@@ -15,13 +14,6 @@
 
     --btn-secondary: var(--bg-dark-blue);
     --btn-accent: var(--accent);
-}
-
-/* Réglages généraux */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 html {
@@ -40,11 +32,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: calc(100vh - 64px);
     padding: 50px 20px;
     overflow: hidden;
     text-align: center;
 }
+
 
 /* Image de fond */
 .background {
@@ -122,7 +115,7 @@ h1 {
     text-transform: uppercase;
 }
 
-.statistic-value {
+.statistic-number {
     color: var(--white);
     font-size: 16px;
 }
@@ -290,4 +283,40 @@ footer {
     #search-form button {
         width: 100%;
     }
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 30px;
+    background: var(--nav-bg);
+    position: relative;
+    z-index: 2;
+}
+
+.nav-logo {
+    height: 40px;
+}
+
+nav ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--light-blue);
+}
+
+nav input {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: none;
+    font-family: inherit;
 }
