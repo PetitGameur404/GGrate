@@ -48,30 +48,53 @@
             <br>
             <button type="submit">Submit my review</button>
         </form>
+
+        <div id="toast" class="toast"></div>
     </div>
 
-    <script>
-        async function pushReviews(e) {
-            e.preventDefault();
+<script>
+    function showToast(message, type = 'success') {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.className = `toast ${type} show`;
+    }
 
-            const steamuser = document.querySelector('[name="steamuser"]').value;
-            const game = document.querySelector('[name="game"]').value;
-            const stars = document.querySelector('[name="stars"]').value;
-            const description = document.querySelector('[name="description"]').value;
+    async function pushReviews(e) {
+        e.preventDefault();
 
-            const body = new URLSearchParams({ steamuser, game, stars, description });
+        const steamuser = document.querySelector('[name="steamuser"]').value;
+        const game = document.querySelector('[name="game"]').value;
+        const stars = document.querySelector('[name="stars"]').value;
+        const description = document.querySelector('[name="description"]').value;
 
+        const body = new URLSearchParams({ steamuser, game, stars, description });
+
+        try {
             const response = await fetch('/test', {
                 method: 'POST',
                 body,
             });
 
+            if (!response.ok) {
+                throw new Error('Server error');
+            }
+
             const result = await response.json();
             console.log(result);
-        }
 
-        document.getElementById('review-form').addEventListener('submit', pushReviews);
-    </script>
+            showToast('Review sent! Redirecting...');
+
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 1500);
+        } catch (err) {
+            console.error(err);
+            showToast('Something went wrong, try again.', 'error');
+        }
+    }
+
+    document.getElementById('review-form').addEventListener('submit', pushReviews);
+</script>
 
 </body>
 </html>
