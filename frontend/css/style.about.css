@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+:root {
+    --bg-blue: #1B2838;
+    --bg-dark-blue: #1B2B40;
+    --light-blue: #1A9FFF;
+    --white: #EDEDED;
+    --accent: #A1CD44;
+    --dark: #141414;
+
+    --btn-primary: linear-gradient(90deg, #0DC2F2 50%, #1A9FFF 100%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    background-color: var(--bg-blue);
+    color: var(--white);
+    min-height: 100vh;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 12px 0;
+    background: var(--dark);
+}
+
+.logo {
+    height: 20px;
+}
+
+nav ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+nav a:hover {
+    color: var(--light-blue);
+}
+
+.about {
+    width: 100%;
+    max-width: 900px;
+    margin: 70px auto;
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 45px;
+}
+
+.about-tag {
+    display: inline-block;
+    padding: 4px 14px;
+    background: rgba(26, 159, 255, 0.15);
+    color: var(--light-blue);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-header h1 {
+    margin: 15px 0;
+    font-size: 3rem;
+}
+
+.about-header a {
+    color: #0DC2F2;
+    font-weight: bold;
+}
+
+.accent {
+    color: var(--accent);
+}
+
+.about-intro {
+    margin: 0 auto;
+    max-width: 650px;
+    line-height: 1.7;
+    color: rgba(237, 237, 237, 0.8);
+}
+
+.about-credits {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.about-card {
+    flex: 1 1 280px;
+    max-width: 340px;
+    background: var(--dark);
+    border-radius: 10px;
+    padding: 30px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.about-role {
+    color: rgba(237, 237, 237, 0.6);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-card h3 {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.about-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: rgba(237, 237, 237, 0.7);
+}
+
+.about-link {
+    margin-top: 8px;
+    padding: 8px 16px;
+    background: var(--btn-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 2px;
+    font-weight: 600;
+}
+
+.about-note {
+    width: 100%;
+    background: var(--bg-dark-blue);
+    border: 1px solid rgba(161, 205, 68, 0.3);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.about-note h2 {
+    margin: 0 0 12px;
+    color: var(--accent);
+    font-size: 1.3rem;
+}
+
+.about-note p {
+    margin: 0;
+    line-height: 1.7;
+    color: rgba(237, 237, 237, 0.8);
+}
