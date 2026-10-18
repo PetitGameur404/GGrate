@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.game.css">
+    <title>Game - Library</title>
+</head>
+<body>
+
+    <nav>
+        <a href="/">
+            <img class="logo" src="assets/icon/logo.png" alt="logo">
+        </a>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/games.html">Games</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+
+        <input type="search" name="search" id="search" placeholder="Search game...">
+    </nav>
+
+    <div class="hero">
+        <img class="" src="assets/fortnite.jpg" alt="">
+
+        <div class="hero-section">
+            <h1>Fornite reviews</h1>
+            <p>Here you can see fornite rewies</p>
+
+            <a href="#">SEE REVIEWS</a>
+        </div>
+
+    </div>
+
+    
+
+    <h2 class="section-title">Latest reviews</h2>
+    <div id="reviews" class="reviews"></div>
+
+    <script>
+        const gameNames = {
+            'fortnite': 'Fortnite',
+        };
+
+        function escapeHTML(str) {
+            const div = document.createElement('div');
+            div.textContent = str ?? '';
+            return div.innerHTML;
+        }
+
+        async function loadReviews() {
+            const response = await fetch('/reviews?game=fortnite');
+            const reviews = await response.json();
+
+            const container = document.getElementById('reviews');
+            container.innerHTML = '';
+
+            if (reviews.length === 0) {
+                container.innerHTML = '<p>No reviews yet.</p>';
+                return;
+            }
+
+            reviews.forEach((review) => {
+                const stars = Number(review.stars) || 0;
+                const gameName = gameNames[review.game] || review.game;
+
+                const card = document.createElement('div');
+                card.className = 'review-card';
+                card.innerHTML = `
+                    <div class="review-header">
+                        <h3>${escapeHTML(review.steamuser)}</h3>
+                        <span class="review-stars">${'★'.repeat(stars)}${'☆'.repeat(5 - stars)}</span>
+                    </div>
+                    <p class="review-game">${escapeHTML(gameName)}</p>
+                    <p>${escapeHTML(review.description)}</p>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        loadReviews();
+    </script>
+
+</body>
+</html>
